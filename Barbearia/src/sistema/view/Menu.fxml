@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="content" prefHeight="580.0" prefWidth="1024.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.MenuController">
+   <children>
+      <Label layoutX="462.0" layoutY="175.0" text="Welcome," textFill="#adadad">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="209.0" text="To" textFill="#adadad">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="243.0" text="Main Menu" textFill="#adadad">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="474.0" layoutY="287.0" onAction="#handle_logout" ripplerFill="WHITE" styleClass="login-btn" text="Sign Out">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <HBox fx:id="top" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="1024.0">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <HBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Menu" textFill="#c2c2c2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#minimize_stage" prefHeight="30.0" prefWidth="30.0" styleClass="min-btn">
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:white" iconName="MINUS" size="1.3em" />
+               </graphic>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="999.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#close_app" prefHeight="30.0" prefWidth="30.0" styleClass="close-btn">
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:white" iconName="CLOSE" size="1.3em" />
+               </graphic>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
