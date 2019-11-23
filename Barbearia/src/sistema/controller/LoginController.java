@@ -1,7 +1,5 @@
-package application.controllers;
+package sistema.controller;
 
-import application.Launch;
-import application.helpers.ProgramState;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,14 +52,14 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handle_login(ActionEvent event) throws IOException {
-        Parent menu = FXMLLoader.load(getClass().getResource("application/views/Menu.fxml"));
+        Parent menu = FXMLLoader.load(getClass().getResource("sistema/view/Menu.fxml"));
         parent.getChildren().removeAll();
         parent.getChildren().setAll(menu);
     }
 
      @FXML
     private void minimize_stage(MouseEvent event) {
-//        Launch.stage.setIconified(true);
+//        LaunchController.stage.setIconified(true);
     }
 
     @FXML

@@ -1,7 +1,5 @@
-package application.controllers;
+package sistema.controller;
 
-import application.Launch;
-import application.helpers.ProgramState;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,30 +16,29 @@ import javafx.scene.layout.HBox;
 
 public class MenuController implements Initializable {
 
-    @FXML
-    private AnchorPane content;
-    @FXML
-    private HBox top;
+  @FXML
+  private AnchorPane content;
+  @FXML
+  private HBox top;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }
+  @Override
+  public void initialize(URL url, ResourceBundle rb) {
+  }
 
-    @FXML
-    private void handle_logout(ActionEvent event) throws IOException {
-        Parent menu = FXMLLoader.load(getClass().getResource("/application/views/Login.fxml"));
-        content.getChildren().removeAll();
-        content.getChildren().setAll(menu);
+  @FXML
+  private void handle_logout(ActionEvent event) throws IOException {
+    Parent menu = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml"));
+    content.getChildren().removeAll();
+    content.getChildren().setAll(menu);
+  }
 
-    }
+//  @FXML
+//  private void minimize_stage(MouseEvent event) {
+//    LaunchController.stage.setIconified(true);
+//  }
 
-//    @FXML
-//    private void minimize_stage(MouseEvent event) {
-//        Launch.stage.setIconified(true);
-//    }
-
-    @FXML
-    private void close_app(MouseEvent event) {
-        System.exit(0);
-    }
+  @FXML
+  private void close_app(MouseEvent event) {
+    System.exit(0);
+  }
 }

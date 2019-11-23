@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="417.0" fitWidth="589.0" layoutX="119.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imgs/loading.gif" />
+            <Image url="@../../img/loading.gif" />
          </image>
       </ImageView>
       <Label fx:id="label" alignment="CENTER" layoutX="268.0" layoutY="416.0" prefHeight="30.0" prefWidth="110.0">

@@ -1,6 +1,5 @@
-package application;
+package sistema.controller;
 
-import application.controllers.SplashController;
 import com.sun.javafx.application.LauncherImpl;
 import javafx.application.Application;
 import javafx.application.Preloader;
@@ -9,12 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sistema.utils.NewPreloader;
 
-public class Launch extends Application {
+public class LaunchController extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("/application/views/Login.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/Login.fxml"));
     Scene scene = new Scene(root);
     stage.setScene(scene);
     stage.initStyle(StageStyle.UNDECORATED);
@@ -31,7 +31,7 @@ public class Launch extends Application {
   }
 
   public static void main(String[] args) {
-    LauncherImpl.launchApplication(Launch.class, NewPreloader.class, args);
+    LauncherImpl.launchApplication(LaunchController.class, NewPreloader.class, args);
   }
 
 }

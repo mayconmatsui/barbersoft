@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package application;
+package sistema.utils;
 
 import application.controllers.SplashController;
 import javafx.application.Preloader;
@@ -29,19 +29,18 @@ public class NewPreloader extends Preloader {
 
   @Override
   public void init() throws Exception {
-    Parent root1 = FXMLLoader.load(getClass().getResource("/application/views/Splash.fxml"));
+    Parent root1 = FXMLLoader.load(getClass().getResource("/sistema/view/Splash.fxml"));
     scene = new Scene(root1);
     scene.setFill(null);
     scene.getRoot().setStyle("-fx-background-color: transparent;");
     //scene = new Scene(root1, 700, 400, Color.TRANSPARENT); 
-    root1.setStyle("-fx-background-color: transparent;"); 
+    root1.setStyle("-fx-background-color: transparent;");
 
   }
 
   @Override
   public void start(Stage stage) throws Exception {
     this.preloaderStage = stage;
-    
 
     // Set preloader scene and show stage.
     preloaderStage.setScene(scene);
@@ -61,15 +60,11 @@ public class NewPreloader extends Preloader {
   }
 
   @Override
-    public void handleApplicationNotification(Preloader.PreloaderNotification info) {
-      
-          if (info instanceof ProgressNotification) {
-            SplashController.progress.setText(((ProgressNotification) info).getProgress() *10 + "%");
-            System.out.println("Value@ :" + ((ProgressNotification) info).getProgress());
-        }
+  public void handleApplicationNotification(Preloader.PreloaderNotification info) {
 
-               
-        
+    if (info instanceof ProgressNotification) {
+      SplashController.progress.setText(((ProgressNotification) info).getProgress() * 10 + "%");
+      System.out.println("Value@ :" + ((ProgressNotification) info).getProgress());
     }
-
+  }
 }
