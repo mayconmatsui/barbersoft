@@ -5,7 +5,7 @@
  */
 package sistema.utils;
 
-import application.controllers.SplashController;
+import sistema.controller.SplashController;
 import javafx.application.Preloader;
 import javafx.application.Preloader.ProgressNotification;
 import javafx.application.Preloader.StateChangeNotification;

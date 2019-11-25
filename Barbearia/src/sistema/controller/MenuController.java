@@ -27,7 +27,7 @@ public class MenuController implements Initializable {
 
   @FXML
   private void handle_logout(ActionEvent event) throws IOException {
-    Parent menu = FXMLLoader.load(getClass().getResource("/application/view/Login.fxml"));
+    Parent menu = FXMLLoader.load(getClass().getResource("/sistema/view/Login.fxml"));
     content.getChildren().removeAll();
     content.getChildren().setAll(menu);
   }
