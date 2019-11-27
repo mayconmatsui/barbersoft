@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handle_login(ActionEvent event) throws IOException {
-        Parent menu = FXMLLoader.load(getClass().getResource("sistema/view/Menu.fxml"));
+        Parent menu = FXMLLoader.load(getClass().getResource("sistema/view/Principal.fxml"));
         parent.getChildren().removeAll();
         parent.getChildren().setAll(menu);
     }

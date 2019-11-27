@@ -1,3 +1,7 @@
+.root {
+    -fx-font-family: system;
+    -fx-font-size: 15px
+}
 .parent{
     -fx-background-color: #303138;
 }
@@ -30,4 +34,28 @@
 .login-btn{
     -fx-background-color: tomato;
     -fx-text-fill: #FFFFFF;
+}
+
+/*ESTILIZAÇÃO DO MENU PRINCIPAL*/
+.context-menu {
+    -fx-background-color: #3B4148;
+}
+.menu-bar {
+    -fx-background-color: #303138;
+}
+.menu:hover {
+    -fx-background-color: #3B4148;
+}
+.menu:showing, .menu-item.showing {
+    -fx-background-color: #3B4148;
+}
+.menu-item:focused{
+    -fx-background-color: #303138;
+}
+.menu-bar .label {
+    -fx-text-fill: #c2c2c2;
+}
+.menu-icons {
+    -fx-text-fill: red;
+    -fx-background-color: red;
 }

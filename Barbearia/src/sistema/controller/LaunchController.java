@@ -14,10 +14,10 @@ public class LaunchController extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/Login.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/Principal.fxml"));
     Scene scene = new Scene(root);
     stage.setScene(scene);
-    stage.initStyle(StageStyle.UNDECORATED);
+//    stage.initStyle(StageStyle.UNDECORATED);
     stage.show();
   }
 

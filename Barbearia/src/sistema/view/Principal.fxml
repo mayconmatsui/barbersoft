@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Cadastros">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Categorias">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="LIST_ALT" />
+                     </graphic></MenuItem>
+              <MenuItem mnemonicParsing="false" text="Clientes">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="USER" />
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Funcionarios">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" glyphStyleClass="" iconName="USERS" />
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Produtos">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="CUBES" />
+                     </graphic></MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Agenda">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Agendamentos">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="CALENDAR" />
+                     </graphic></MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Vendas">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Efetuar Venda">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="CART_ARROW_DOWN" />
+                     </graphic></MenuItem>
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Estoque">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Entrada">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="PLUS_SQUARE" />
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Saida">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="MINUS_SQUARE" />
+                     </graphic></MenuItem>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Relatorios">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Aniversariantes">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="AREA_CHART" />
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Produtos">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="BAR_CHART" />
+                     </graphic></MenuItem>
+                <MenuItem mnemonicParsing="false" text="Vendas">
+                     <graphic>
+                        <FontAwesomeIcon fill="#c2c2c2" iconName="LINE_CHART" />
+                     </graphic></MenuItem>
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <Label prefHeight="15.0" prefWidth="968.0" text="Label" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+   </center>
+</BorderPane>
