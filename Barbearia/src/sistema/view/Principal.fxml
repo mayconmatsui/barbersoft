@@ -19,7 +19,7 @@
             <items>
                   <MenuItem mnemonicParsing="false" text="Categorias">
                      <graphic>
-                        <FontAwesomeIcon fill="#c2c2c2" iconName="LIST_ALT" />
+                        <FontAwesomeIcon fill="#c2c2c2" glyphStyleClass="" iconName="LIST_ALT" />
                      </graphic></MenuItem>
               <MenuItem mnemonicParsing="false" text="Clientes">
                      <graphic>
