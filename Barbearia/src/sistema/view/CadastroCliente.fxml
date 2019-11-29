@@ -11,14 +11,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistema.controller.CadastroClienteController">
    <children>
       <HBox prefHeight="30.0" prefWidth="200.0">
          <children>
-            <Label text="Clientes" textFill="#c2c2c2">
+            <Label styleClass="cinza" text="Cadastro de cliente">
                <graphic>
-                  <FontAwesomeIcon fill="#c2c2c2" iconName="USER">
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#c2c2c2" iconName="USER" styleClass="cinza">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -33,61 +32,48 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </HBox>
-      <GridPane alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <Button fx:id="btNovo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: lightseagreen;" styleClass="login-btn">
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="FLOPPY_ALT" size="1.5em" />
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="239.0" promptText="Buscar">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false">
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
-                        <FontAwesomeIcon iconName="SEARCH" />
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
-                  </Button>
+                  </Label>
+                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="Nome completo" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" text="Novo">
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
-                        <FontAwesomeIcon iconName="PLUS" />
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="CALENDAR" size="1.5em" />
                      </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Editar">
-                     <graphic>
-                        <FontAwesomeIcon iconName="PENCIL" />
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" text="Excluir">
-                     <graphic>
-                        <FontAwesomeIcon iconName="REMOVE" />
-                     </graphic>
-                  </Button>
+                  </Label>
+                  <DatePicker maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Data de nascimento" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
-         <padding>
-            <Insets left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </GridPane>
-      <TableView prefWidth="1004.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-      </TableView>
+      </HBox>
    </children>
 </VBox>
