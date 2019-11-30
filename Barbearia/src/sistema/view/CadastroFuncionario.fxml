@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="800.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistema.controller.CadastroFuncionarioController">
+   <children>
+      <HBox prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label styleClass="cinza" text="Cadastro de Funcionario">
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#c2c2c2" iconName="USER" styleClass="cinza">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </FontAwesomeIcon>
+               </graphic>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="btNovo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: lightseagreen;" styleClass="login-btn">
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="FLOPPY_ALT" size="1.5em" />
+               </graphic>
+            </Button>
+            <Button fx:id="btCancelar" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelar" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="REMOVE" size="1.5em" />
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfNome" prefHeight="45.0" prefWidth="45.0" promptText="Nome completo" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="CALENDAR" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <DatePicker fx:id="dpDataNasc" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Data de nascimento" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="1.0" />
+                     </HBox.margin></DatePicker>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfRG" prefHeight="45.0" prefWidth="45.0" promptText="RG" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfCPF" prefHeight="45.0" prefWidth="45.0" promptText="CPF" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfTelefone" prefHeight="45.0" prefWidth="45.0" promptText="Telefone" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfEndereco" prefHeight="45.0" prefWidth="45.0" promptText="Endereço" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfEmail" prefHeight="45.0" prefWidth="45.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <TextField fx:id="tfUsuario" prefHeight="45.0" prefWidth="45.0" promptText="Usuario" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <PasswordField fx:id="pfSenha" prefHeight="45.0" prefWidth="273.0" promptText="Senha" styleClass="txtfield">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
