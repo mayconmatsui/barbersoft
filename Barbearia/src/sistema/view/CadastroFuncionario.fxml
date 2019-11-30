@@ -61,7 +61,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField fx:id="tfNome" prefHeight="45.0" prefWidth="45.0" promptText="Nome completo" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfNome" prefHeight="45.0" prefWidth="340.0" promptText="Nome completo" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -176,28 +176,28 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="390.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField fx:id="tfUsuario" prefHeight="45.0" prefWidth="45.0" promptText="Usuario" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <PasswordField fx:id="pfSenha" prefHeight="45.0" prefWidth="340.0" promptText="Senha" styleClass="txtfield">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </TextField>
+                  </PasswordField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="389.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <PasswordField fx:id="pfSenha" prefHeight="45.0" prefWidth="273.0" promptText="Senha" styleClass="txtfield">
+                  <PasswordField fx:id="pfSenhaConfirma" prefHeight="45.0" prefWidth="346.0" promptText="Senha Confirmação" styleClass="txtfield">
                      <font>
                         <Font size="14.0" />
                      </font>
