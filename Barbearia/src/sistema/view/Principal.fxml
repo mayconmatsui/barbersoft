@@ -15,65 +15,65 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="Cadastros">
+          <Menu fx:id="mbCadastros" mnemonicParsing="false" text="Cadastros">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Categorias">
+                  <MenuItem fx:id="miCategorias" mnemonicParsing="false" onAction="#abrirCategorias" text="Categorias">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" glyphStyleClass="" iconName="LIST_ALT" />
                      </graphic></MenuItem>
-              <MenuItem mnemonicParsing="false" text="Clientes">
+              <MenuItem fx:id="miClientes" mnemonicParsing="false" onAction="#abrirClientes" text="Clientes">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="USER" />
                      </graphic></MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Funcionarios">
+                  <MenuItem fx:id="miFuncionarios" mnemonicParsing="false" onAction="#abrirFuncionarios" text="Funcionarios">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" glyphStyleClass="" iconName="USERS" />
                      </graphic></MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Produtos">
+                  <MenuItem fx:id="miProdutos" mnemonicParsing="false" onAction="#abrirProdutos" text="Produtos">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="CUBES" />
                      </graphic></MenuItem>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Agenda">
+          <Menu fx:id="mbAgenda" mnemonicParsing="false" text="Agenda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Agendamentos">
+              <MenuItem fx:id="miAgendamentos" mnemonicParsing="false" onAction="#abrirAgendamentos" text="Agendamentos">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="CALENDAR" />
                      </graphic></MenuItem>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Vendas">
+          <Menu fx:id="mbVendas" mnemonicParsing="false" text="Vendas">
             <items>
-              <MenuItem mnemonicParsing="false" text="Efetuar Venda">
+              <MenuItem fx:id="miEfetuarVenda" mnemonicParsing="false" onAction="#abrirVendas" text="Efetuar Venda">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="CART_ARROW_DOWN" />
                      </graphic></MenuItem>
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Estoque">
+            <Menu fx:id="mbEstoque" mnemonicParsing="false" text="Estoque">
               <items>
-                <MenuItem mnemonicParsing="false" text="Entrada">
+                <MenuItem fx:id="miEntradaEstoque" mnemonicParsing="false" onAction="#AbrirEntradaEstoque" text="Entrada">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="PLUS_SQUARE" />
                      </graphic></MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Saida">
+                  <MenuItem fx:id="miSaidaEstoque" mnemonicParsing="false" onAction="#abrirSaidaEstoque" text="Saida">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="MINUS_SQUARE" />
                      </graphic></MenuItem>
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Relatorios">
+            <Menu fx:id="mbRelatorios" mnemonicParsing="false" text="Relatorios">
               <items>
-                  <MenuItem mnemonicParsing="false" text="Aniversariantes">
+                  <MenuItem fx:id="miAnivesariantes" mnemonicParsing="false" onAction="#abrirAniversariantes" text="Aniversariantes">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="AREA_CHART" />
                      </graphic></MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Produtos">
+                  <MenuItem fx:id="miRelatorioProdutos" mnemonicParsing="false" onAction="#abrirRelatorioProdutos" text="Produtos">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="BAR_CHART" />
                      </graphic></MenuItem>
-                <MenuItem mnemonicParsing="false" text="Vendas">
+                <MenuItem fx:id="miRelatorioVendas" mnemonicParsing="false" onAction="#abrirRelatorioVendas" text="Vendas">
                      <graphic>
                         <FontAwesomeIcon fill="#c2c2c2" iconName="LINE_CHART" />
                      </graphic></MenuItem>

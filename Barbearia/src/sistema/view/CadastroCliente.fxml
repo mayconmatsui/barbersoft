@@ -39,7 +39,7 @@
                   <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="FLOPPY_ALT" size="1.5em" />
                </graphic>
             </Button>
-            <Button fx:id="btNovo1" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
+            <Button fx:id="btCancelar" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelar" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
                <graphic>
                   <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="REMOVE" size="1.5em" />
                </graphic>
@@ -61,7 +61,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="Nome completo" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfNome" prefHeight="45.0" prefWidth="45.0" promptText="Nome completo" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -75,7 +75,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="CALENDAR" size="1.5em" />
                      </graphic>
                   </Label>
-                  <DatePicker maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Data de nascimento" HBox.hgrow="ALWAYS">
+                  <DatePicker fx:id="dpDataNasc" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Data de nascimento" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="1.0" />
                      </HBox.margin></DatePicker>
@@ -92,7 +92,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="RG" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfRG" prefHeight="45.0" prefWidth="45.0" promptText="RG" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -106,7 +106,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="CPF" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfCPF" prefHeight="45.0" prefWidth="45.0" promptText="CPF" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -120,7 +120,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="Telefone" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfTelefone" prefHeight="45.0" prefWidth="45.0" promptText="Telefone" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -141,7 +141,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="Endereço" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfEndereco" prefHeight="45.0" prefWidth="45.0" promptText="Endereço" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -162,7 +162,7 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField prefHeight="45.0" prefWidth="45.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfEmail" prefHeight="45.0" prefWidth="45.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>

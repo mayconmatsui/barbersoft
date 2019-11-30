@@ -84,7 +84,7 @@
       </GridPane>
       <TableView editable="true" prefWidth="1004.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn fx:id="tbClientes" prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
             <TableColumn prefWidth="75.0" text="C3" />
             <TableColumn prefWidth="75.0" text="C4" />
