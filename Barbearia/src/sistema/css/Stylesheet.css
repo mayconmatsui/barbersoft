@@ -25,7 +25,7 @@
     -fx-prompt-text-fill: #ADADAD;
     -fx-text-fill: #FFFFFF;
 }
-.txtfield:focused{
+.txtfield:focused, .date-picker:focused, .date-picker > .text-field:focused{
     -fx-background-color:  #292C34;
     -fx-background-radius: 0px;
     -fx-prompt-text-fill: #ADADAD;
@@ -37,13 +37,22 @@
     -fx-background-radius: 0px;
 }
 
-.date-picker-popup > .month-year-pane {
-    -fx-padding: 0.588883em 0.5em 0.666667em 0.5em; /* 7 6 8 6 */
-    -fx-background-color: derive(-fx-box-border,30%), 
-        linear-gradient(to bottom, derive(-fx-base,-3%), 
-                                   derive(-fx-base,5%) 50%, 
-                                   derive(-fx-base,-3%));
-    -fx-background-insets: 0 0 0 0, 0 0 1 0;
+.date-picker {
+    -fx-background-color: #3B4148;
+    -fx-text-fill: #c2c2c2;
+    -fx-background-radius: 0px;
+    -fx-border-bottom: 0px;
+}
+
+.date-picker > .text-field {
+    -fx-prompt-text-fill: #ADADAD;
+    -fx-control-inner-background: #3B4148;
+    -fx-control-out-background: #3B4148;
+    -fx-border-bottom: 0px;
+}
+
+.date-picker > .arrow-button {
+    -fx-background-color:  #363b41; /* Url of the icon */
 }
 
 .cinza {
