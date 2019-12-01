@@ -25,7 +25,7 @@
     -fx-prompt-text-fill: #ADADAD;
     -fx-text-fill: #FFFFFF;
 }
-.txtfield:focused, .date-picker:focused, .date-picker > .text-field:focused{
+.txtfield:focused, .date-picker:focused, .date-picker > .text-field:focused, .text-area:focused {
     -fx-background-color:  #292C34;
     -fx-background-radius: 0px;
     -fx-prompt-text-fill: #ADADAD;
@@ -82,3 +82,20 @@
     -fx-text-fill: red;
     -fx-background-color: red;
 }
+/* ESTILO CHECKBOX*/
+.check-box:focused .box {
+    -fx-background-color: #c2c2c2;
+}
+/*Estilo TextArea*/
+.text-area {
+    text-area-background: #3B4148 ;
+    -fx-background-color: #3B4148 ;
+    -fx-background-radius: 0px;
+    -fx-prompt-text-fill: #ADADAD;
+    -fx-text-fill: #FFFFFF;
+}
+.text-area .content {
+    -fx-background-color: text-area-background ;
+    -fx-background-radius: 0px;
+}
+

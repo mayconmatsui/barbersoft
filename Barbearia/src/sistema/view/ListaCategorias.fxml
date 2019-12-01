@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="30.0" prefWidth="200.0">
+         <children>
+            <Label styleClass="cinza" text="Categorias">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="ARCHIVE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </FontAwesomeIcon>
+               </graphic>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <GridPane alignment="CENTER" prefHeight="45.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="250.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="tfBusca" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="200.0" promptText="Buscar" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btBusca" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buscar" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="login-btn" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="SEARCH" size="1.5em" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button fx:id="btNovo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: lightseagreen;" styleClass="login-btn">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="PLUS" size="1.5em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btEditar" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editar" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: cornflowerblue;" styleClass="login-btn">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="PENCIL" size="1.5em" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btExcluir" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#excluir" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="REMOVE" size="1.5em" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <padding>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <TableView fx:id="tbCategoria" editable="true" prefHeight="274.0" prefWidth="600.0" stylesheets="@../css/Stylesheet.css">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn fx:id="tbColumnClientes" prefWidth="75.0" style="-fx-background-color: #3B4148; -fx-border-color: #FFFFFF;" text="Nome Categoria" />
+            <TableColumn fx:id="tbColumnStatus" prefWidth="75.0" text="Status" />
+         </columns>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+         </VBox.margin>
+      </TableView>
+   </children>
+</VBox>
