@@ -99,7 +99,7 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
@@ -113,7 +113,7 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
@@ -154,25 +154,44 @@
          </padding>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="250.0" HBox.hgrow="ALWAYS">
+            <HBox prefHeight="45.0" prefWidth="345.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <TextField fx:id="tfEmail" prefHeight="45.0" prefWidth="45.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfEmail" prefHeight="45.0" prefWidth="345.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </TextField>
                </children>
             </HBox>
+            <HBox prefHeight="45.0" prefWidth="345.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
+                     <graphic>
+                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
+                     </graphic>
+                  </Label>
+                  <ComboBox fx:id="cbTipoFuncionario" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="345.0" promptText="Selecione o Cargo" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
          </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
          <children>
@@ -183,21 +202,21 @@
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <PasswordField fx:id="pfSenha" prefHeight="45.0" prefWidth="340.0" promptText="Senha" styleClass="txtfield">
+                  <PasswordField fx:id="pfSenha" prefHeight="45.0" prefWidth="345.0" promptText="Senha" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="389.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="389.0" HBox.hgrow="ALWAYS">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
                         <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="USER" size="1.5em" />
                      </graphic>
                   </Label>
-                  <PasswordField fx:id="pfSenhaConfirma" prefHeight="45.0" prefWidth="346.0" promptText="Senha Confirmação" styleClass="txtfield">
+                  <PasswordField fx:id="pfSenhaConfirma" prefHeight="45.0" prefWidth="345.0" promptText="Senha Confirmação" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>

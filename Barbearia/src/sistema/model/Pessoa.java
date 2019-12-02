@@ -1,6 +1,8 @@
 package sistema.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+
 
 /**
  *
@@ -8,37 +10,37 @@ import java.util.Date;
  */
 public abstract class Pessoa {
 
-  private Integer Id;
-  private String Nome;
-  private Date DataNascimento;
+  private Integer id;
+  private String nome;
+  private LocalDate dataNascimento;
   private String CPF;
   private String RG;
-  private String Telefone;
-  private String Email;
-  private String Endereco;
+  private String telefone;
+  private String email;
+  private String endereco;
 
   public Integer getId() {
-    return Id;
+    return id;
   }
 
-  public void setId(Integer Id) {
-    this.Id = Id;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getNome() {
-    return Nome;
+    return nome;
   }
 
   public void setNome(String Nome) {
-    this.Nome = Nome;
+    this.nome = Nome;
   }
 
-  public Date getDataNascimento() {
-    return DataNascimento;
+  public LocalDate getDataNascimento() {
+    return dataNascimento;
   }
 
-  public void setDataNascimento(Date DataNascimento) {
-    this.DataNascimento = DataNascimento;
+  public void setDataNascimento(LocalDate dataNascimento) {
+    this.dataNascimento = dataNascimento;
   }
 
   public String getCPF() {
@@ -58,27 +60,27 @@ public abstract class Pessoa {
   }
 
   public String getTelefone() {
-    return Telefone;
+    return telefone;
   }
 
   public void setTelefone(String Telefone) {
-    this.Telefone = Telefone;
+    this.telefone = Telefone;
   }
 
   public String getEmail() {
-    return Email;
+    return email;
   }
 
   public void setEmail(String Email) {
-    this.Email = Email;
+    this.email = Email;
   }
 
   public String getEndereco() {
-    return Endereco;
+    return endereco;
   }
 
   public void setEndereco(String Endereco) {
-    this.Endereco = Endereco;
+    this.endereco = Endereco;
   }
 
 }

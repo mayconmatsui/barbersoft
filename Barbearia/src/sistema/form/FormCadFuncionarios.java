@@ -424,7 +424,7 @@ public class FormCadFuncionarios extends javax.swing.JFrame {
           DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
           java.util.Date dataJava = df.parse(tfDataNascimento.getText());
           java.sql.Date dataSql = new Date(dataJava.getTime());
-          funcionario.setDataNascimento(dataSql);
+          //funcionario.setDataNascimento(dataSql);
         } catch (ParseException ex) {
           Logger.getLogger(FormVenda.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -486,7 +486,7 @@ public class FormCadFuncionarios extends javax.swing.JFrame {
           DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
           java.util.Date dataJava = df.parse(tfDataNascimento.getText());
           java.sql.Date dataSql = new Date(dataJava.getTime());
-          funcionario.setDataNascimento(dataSql);
+          //funcionario.setDataNascimento(dataSql);
         } catch (ParseException ex) {
           Logger.getLogger(FormVenda.class.getName()).log(Level.SEVERE, null, ex);
         }

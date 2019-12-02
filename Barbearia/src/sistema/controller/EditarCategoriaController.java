@@ -18,7 +18,7 @@ import sistema.model.Categoria;
  *
  * @author ezequiel
  */
-public class CadastroCategoriaFXMLController implements Initializable {
+public class EditarCategoriaController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -57,20 +57,21 @@ public class CadastroCategoriaFXMLController implements Initializable {
                 if (res == JOptionPane.YES_OPTION) {
                     cbStatus.setSelected(true);
                 }
+
             }
             Categoria categoria = new Categoria();
             CategoriaDao categoriaDao = new CategoriaDao();
             carregarDadosCampos(categoria);
-            if (categoriaDao.salvar(categoria) == null) {
-                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Categoria", "Erro", JOptionPane.ERROR_MESSAGE);
+            if (categoriaDao.alterar(categoria) == null) {
+                JOptionPane.showMessageDialog(null, "Erro ao Editar Categoria", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Categoria cadastrada com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Categoria Editada com Sucesso!", "Editar", JOptionPane.INFORMATION_MESSAGE);
                 fecharInterface();
             }
-        }
 
+        }
     }
-    
+
     private void carregarDadosCampos(Categoria categoria) {
         categoria.setCategoriaNome(tfNomeCategoria.getText());
         //operador condicional Ternário
@@ -91,6 +92,15 @@ public class CadastroCategoriaFXMLController implements Initializable {
     private void fecharInterface() {
         Stage stage = (Stage) btNovo.getScene().getWindow();
         stage.close();
+
     }
 
+    public void adicionarValorCampos(Categoria c) {
+        tfNomeCategoria.setText(c.getCategoriaNome());
+        if (c.getCategoriaStatus() == 1) {
+            cbStatus.setSelected(true);
+        } else {
+            cbStatus.setSelected(false);
+        }
+    }
 }
