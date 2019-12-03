@@ -33,12 +33,12 @@
          <children>
             <Button fx:id="btNovo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: lightseagreen;" styleClass="login-btn">
                <graphic>
-                  <FontAwesomeIconView glyphName="FLOPPY_ALT" size="25" />
+                  <FontAwesomeIconView glyphName="FLOPPY_ALT" size="25" styleClass="branco" />
                </graphic>
             </Button>
             <Button fx:id="btCancelar" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelar" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
                <graphic>
-                  <FontAwesomeIconView glyphName="REMOVE" size="25" />
+                  <FontAwesomeIconView glyphName="REMOVE" size="25" styleClass="branco" />
                </graphic>
             </Button>
          </children>

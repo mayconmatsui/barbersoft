@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistema.controller.ListaClientesController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistema.controller.ListaClientesController">
    <children>
       <HBox prefHeight="30.0" prefWidth="200.0">
          <children>
             <Label styleClass="cinza" text="Clientes">
-               <graphic>
-                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="USER">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </FontAwesomeIcon>
-               </graphic>
                <font>
                   <Font size="24.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER" />
+               </graphic>
             </Label>
          </children>
          <padding>
@@ -48,13 +47,13 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btBusca" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buscar" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="login-btn" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="SEARCH" size="1.5em" />
-                     </graphic>
+                  <Button fx:id="btBusca" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buscar" prefHeight="44.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="login-btn" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets />
+                        <Insets top="-2.0" />
                      </HBox.margin>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="SEARCH" size="20" />
+                     </graphic>
                   </Button>
                </children>
             </HBox>
@@ -62,17 +61,17 @@
                <children>
                   <Button fx:id="btNovo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: lightseagreen;" styleClass="login-btn">
                      <graphic>
-                        <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="PLUS" size="1.5em" />
+                        <FontAwesomeIconView glyphName="PLUS" size="25" styleClass="branco" />
                      </graphic>
                   </Button>
                   <Button fx:id="btEditar" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editar" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: cornflowerblue;" styleClass="login-btn">
                      <graphic>
-                        <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="PENCIL" size="1.5em" />
+                        <FontAwesomeIconView glyphName="PENCIL" size="25" styleClass="branco" />
                      </graphic>
                   </Button>
                   <Button fx:id="btExcluir" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#excluir" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
                      <graphic>
-                        <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="REMOVE" size="1.5em" />
+                        <FontAwesomeIconView glyphName="REMOVE" size="25" styleClass="branco" />
                      </graphic>
                   </Button>
                </children>

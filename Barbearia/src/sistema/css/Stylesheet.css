@@ -59,6 +59,11 @@
     -fx-text-fill: #C2C2C2;
     -fx-fill: #c2c2c2;
 }
+.branco {
+    -fx-text-fill: #FFFFFF!important;
+    -fx-fill: #FFFFFF!important;
+}
+
 .glyph-icon {
     -fx-text-fill: #C2C2C2;
     -fx-fill: #c2c2c2;
