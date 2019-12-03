@@ -82,13 +82,13 @@
             <Insets left="10.0" right="10.0" top="10.0" />
          </padding>
       </GridPane>
-      <TableView editable="true" prefWidth="1004.0" VBox.vgrow="ALWAYS">
+      <TableView fx:id="tbFuncionario" editable="true" prefWidth="1004.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="tbClientes" prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C3" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
+          <TableColumn fx:id="tbColumnNomeFuncionario" prefWidth="75.0" text="Nome Funcionário" />
+          <TableColumn fx:id="tbColumnDataNascimento" prefWidth="75.0" text="Data Nascimento" />
+            <TableColumn fx:id="tbColumnCPF" prefWidth="75.0" text="CPF" />
+            <TableColumn fx:id="tbColumnTelefone" prefWidth="75.0" text="Telefone" />
+            <TableColumn fx:id="tbColumnEndereco" prefWidth="75.0" text="Endereço" />
         </columns>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
