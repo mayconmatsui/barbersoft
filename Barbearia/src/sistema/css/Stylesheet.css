@@ -57,8 +57,13 @@
 
 .cinza {
     -fx-text-fill: #C2C2C2;
+    -fx-fill: #c2c2c2;
 }
-
+.glyph-icon {
+    -fx-text-fill: #C2C2C2;
+    -fx-fill: #c2c2c2;
+    -fx-font-size: 25.0;
+}
 /*ESTILIZAÇÃO DO MENU PRINCIPAL*/
 .context-menu {
     -fx-background-color: #3B4148;
@@ -99,3 +104,17 @@
     -fx-background-radius: 0px;
 }
 
+/*Estilização combobox*/
+.combo-box {
+    -fx-background-color: #3B4148;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #C2C2C2;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #C2C2C2;
+}
+
+.combo-box .arrow{
+    -fx-background-color: #C2C2C2;
+}

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="602.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="602.0" styleClass="parent" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefHeight="30.0" prefWidth="200.0">
          <children>
@@ -19,11 +19,7 @@
                   <Font size="24.0" />
                </font>
                <graphic>
-                  <FontAwesomeIcon glyphStyle="-fx-fill:#c2c2c2" iconName="ARCHIVE" styleClass="cinza">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </FontAwesomeIcon>
+                  <FontAwesomeIconView glyphName="LIST_ALT" />
                </graphic>
             </Label>
          </children>
@@ -35,12 +31,12 @@
          <children>
             <Button fx:id="btNovo" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#novo" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: lightseagreen;" styleClass="login-btn">
                <graphic>
-                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="FLOPPY_ALT" size="1.5em" />
+                  <FontAwesomeIconView glyphName="FLOPPY_ALT" size="25" />
                </graphic>
             </Button>
             <Button fx:id="btCancelar" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelar" prefHeight="45.0" prefWidth="60.0" style="-fx-background-color: tomato;" styleClass="login-btn">
                <graphic>
-                  <FontAwesomeIcon glyphStyle="-fx-fill:#FFFFFF" iconName="REMOVE" size="1.5em" />
+                  <FontAwesomeIconView glyphName="REMOVE" size="25" />
                </graphic>
             </Button>
          </children>
@@ -54,10 +50,10 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;">
                      <graphic>
-                        <FontAwesomeIcon glyphStyle="-fx-fill:#ADADAD" iconName="ARCHIVE" size="1.5em" />
+                        <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
                      </graphic>
                   </Label>
-                  <TextField fx:id="tfNomeCategoria" prefHeight="45.0" prefWidth="430.0" promptText="Nome Categoria" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfNomeCategoria" prefHeight="45.0" prefWidth="264.0" promptText="Nome Categoria" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -69,7 +65,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <CheckBox fx:id="cbStatus" mnemonicParsing="false" styleClass="txtfield" stylesheets="@../css/Stylesheet.css" text="Status" />
+                  <CheckBox fx:id="cbStatus" mnemonicParsing="false" styleClass="txtfield" stylesheets="@../css/Stylesheet.css" text="Ativo" />
                </children>
                <opaqueInsets>
                   <Insets />
