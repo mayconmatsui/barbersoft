@@ -12,10 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
@@ -34,6 +36,9 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private MenuItem miClientes;
+    
+    @FXML
+    private MenuBar mbPrincipal;
 
     @FXML
     private MenuItem miAnivesariantes;
@@ -83,7 +88,7 @@ public class PrincipalController implements Initializable {
         try {
             Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/ListaCategorias.fxml"));
             Scene cena = new Scene(layout);
-            Stage stage = (Stage)((Button) event.getSource()).getScene().getWindow();
+            Stage stage = new Stage();
             stage.setScene(cena);
             stage.show();
         } catch (IOException ex) {
@@ -92,16 +97,43 @@ public class PrincipalController implements Initializable {
     }
     @FXML
     void abrirClientes(ActionEvent event) {
+                try {
+            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/ListaClientes.fxml"));
+            Scene cena = new Scene(layout);
+            Stage stage = new Stage();
+            stage.setScene(cena);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
     @FXML
     void abrirFuncionarios(ActionEvent event) {
+                try {
+            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/ListaFuncionarios.fxml"));
+            Scene cena = new Scene(layout);
+            Stage stage = new Stage();
+            stage.setScene(cena);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
     @FXML
     void abrirProdutos(ActionEvent event) {
+                try {
+            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/ListaProdutos.fxml"));
+            Scene cena = new Scene(layout);
+            Stage stage = new Stage();
+            stage.setScene(cena);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 

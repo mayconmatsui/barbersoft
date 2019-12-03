@@ -1,6 +1,7 @@
 
 package sistema.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +10,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import sistema.dao.CategoriaDao;
 import sistema.model.Categoria;
@@ -57,14 +62,13 @@ public class ListaCategoriasController implements Initializable {
 
     @FXML
     void buscar(ActionEvent event) {
+  
         
-        listaCategorias();
     }
-
     @FXML
     void novo(ActionEvent event) {
+        fecharInterface();
         
-
     }
 
     @FXML
@@ -103,6 +107,10 @@ public class ListaCategoriasController implements Initializable {
 
     private Categoria categoriaSelecionada(Categoria categoria) {
         return categoria;  
+    }
+    private void fecharInterface() {
+        Stage stage = (Stage) btNovo.getScene().getWindow(); //Obtendo a janela atual
+        stage.close();
     }
     
 }
