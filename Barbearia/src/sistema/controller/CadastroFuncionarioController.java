@@ -28,7 +28,6 @@ import sistema.utils.Utils;
  */
 public class CadastroFuncionarioController implements Initializable {
 
-    private Boolean edit = false;
     private Funcionario funcionario;
     private String tipo = null;
 

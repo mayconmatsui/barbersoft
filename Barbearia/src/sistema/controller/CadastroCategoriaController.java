@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -18,11 +19,16 @@ import sistema.model.Categoria;
  *
  * @author ezequiel
  */
-public class EditarCategoriaController implements Initializable {
+public class CadastroCategoriaController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
+    private Categoria categoria = new Categoria();
+    private Stage dialogStage;
+    @FXML
+    private Label lbTitulo;
+
     @FXML
     private TextField tfNomeCategoria;
 
@@ -48,31 +54,58 @@ public class EditarCategoriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+    }
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+
+    public void setTitulo(String titulo) {
+        lbTitulo.setText(titulo);
+    }
+
+    public void preencheForm(Categoria categoria) {
+        this.categoria = categoria;
+        tfNomeCategoria.setText(categoria.getCategoriaNome());
+        if (categoria.getCategoriaStatus() != 0) {
+            cbStatus.setSelected(true);
+        } else {
+            cbStatus.setSelected(false);
+        }
     }
 
     private void salvar() {
+
         if (validarCampos()) {
             if (!cbStatus.isSelected()) {
                 int res = JOptionPane.showConfirmDialog(null, "Deseja habilitar o Status da Categoria", "Status", JOptionPane.YES_NO_OPTION);
                 if (res == JOptionPane.YES_OPTION) {
                     cbStatus.setSelected(true);
                 }
-
             }
-            Categoria categoria = new Categoria();
             CategoriaDao categoriaDao = new CategoriaDao();
-            carregarDadosCampos(categoria);
-            if (categoriaDao.alterar(categoria) == null) {
-                JOptionPane.showMessageDialog(null, "Erro ao Editar Categoria", "Erro", JOptionPane.ERROR_MESSAGE);
+            carregarDadosCampos();
+            if (categoria.getCategoriaId() == null) {
+                if (categoriaDao.salvar(categoria) == null) {
+                    JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Categoria", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Categoria cadastrada com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+                    fecharInterface();
+                }
+            }else {
+                if (categoriaDao.alterar(categoria) == null) {
+                JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Categoria", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Categoria Editada com Sucesso!", "Editar", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Categoria cadastrada com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
                 fecharInterface();
             }
-
+            }
         }
+
     }
 
-    private void carregarDadosCampos(Categoria categoria) {
+    private void carregarDadosCampos() {
         categoria.setCategoriaNome(tfNomeCategoria.getText());
         //operador condicional Ternário
         int res = cbStatus.isSelected() ? 1 : 0;
@@ -92,15 +125,6 @@ public class EditarCategoriaController implements Initializable {
     private void fecharInterface() {
         Stage stage = (Stage) btNovo.getScene().getWindow();
         stage.close();
-
     }
 
-    public void adicionarValorCampos(Categoria c) {
-        tfNomeCategoria.setText(c.getCategoriaNome());
-        if (c.getCategoriaStatus() == 1) {
-            cbStatus.setSelected(true);
-        } else {
-            cbStatus.setSelected(false);
-        }
-    }
 }

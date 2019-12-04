@@ -175,7 +175,7 @@ public class ListaClientesController implements Initializable {
 
   private void valor(Cliente newValue) {
     this.cliente = newValue;
-    System.out.println("Clicou");
+
   }
 
   private void excluirCliente() {

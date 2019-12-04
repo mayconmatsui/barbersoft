@@ -16,10 +16,10 @@ import javafx.stage.Stage;
  * @author ezequiel
  */
 public class Teste extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/ListaClientes.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/ListaCategorias.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -31,5 +31,5 @@ public class Teste extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
