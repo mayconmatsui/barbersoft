@@ -26,7 +26,7 @@ public class LaunchController extends Application {
     for (int i = 1; i <= 100; i++) {
       double progress = (double) i / 10;
       LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
-      Thread.sleep(20);
+//      Thread.sleep(20);
     }
   }
 
