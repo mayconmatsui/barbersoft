@@ -54,7 +54,6 @@ public class NewPreloader extends Preloader {
   @Override
   public void handleStateChangeNotification(StateChangeNotification scn) {
     if (scn.getType() == StateChangeNotification.Type.BEFORE_START) {
-      System.out.println("BEFORE_START");
       preloaderStage.hide();
     }
   }
@@ -64,7 +63,6 @@ public class NewPreloader extends Preloader {
 
     if (info instanceof ProgressNotification) {
       SplashController.progress.setText(((ProgressNotification) info).getProgress() * 10 + "%");
-      System.out.println("Value@ :" + ((ProgressNotification) info).getProgress());
     }
   }
 }

@@ -181,7 +181,7 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
+      <HBox fx:id="boxSenha" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" spacing="10.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="390.0" HBox.hgrow="ALWAYS">
                <children>
