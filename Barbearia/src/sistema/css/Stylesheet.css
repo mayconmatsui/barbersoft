@@ -190,6 +190,7 @@
 }
 
 .combo-box .list-cell {
+    -fx-background-radius: 0px;
     -fx-text-fill: #C2C2C2;
 }
 

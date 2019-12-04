@@ -41,7 +41,7 @@ public class ListaClientesController implements Initializable {
    * Initializes the controller class.
    */
   private List<Cliente> clientes = new ArrayList<>();
-  private static Cliente cliente = null;
+  private Cliente cliente = null;
   private ObservableList<Cliente> obsCliente;
   private CadastroClienteController cadastroCliente = new CadastroClienteController();
   @FXML
@@ -85,11 +85,26 @@ public class ListaClientesController implements Initializable {
   @FXML
   void novo(ActionEvent event) {
     try {
-      Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/CadastroCliente.fxml"));
-      Scene cena = new Scene(layout);
-      Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-      stage.setScene(cena);
-      stage.show();
+      // Carrega o arquivo fxml e cria um novo stage para a janela popup.
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(ListaClientesController.class.getResource("/sistema/view/CadastroCliente.fxml"));
+      VBox page = (VBox) loader.load();
+
+      // Cria o palco dialogStage.
+      Stage dialogStage = new Stage();
+      dialogStage.setTitle("Formulário Cadastro Cliente");
+      dialogStage.initModality(Modality.WINDOW_MODAL);
+      dialogStage.initOwner((Stage) ((Button) event.getSource()).getScene().getWindow());
+      Scene scene = new Scene(page);
+      dialogStage.setScene(scene);
+
+      // Define o cliente no controller.
+      CadastroClienteController controller = loader.getController();
+      controller.setDialogStage(dialogStage);
+
+      // Mostra a janela e espera até o usuário fechar.
+      dialogStage.showAndWait();
+      listaClientes();
     } catch (IOException ex) {
       ex.printStackTrace();
     }
@@ -97,8 +112,11 @@ public class ListaClientesController implements Initializable {
 
   @FXML
   void editar(ActionEvent event) {
-    try {
-      // Carrega o arquivo fxml e cria um novo stage para a janela popup.
+    if (cliente == null) {
+      JOptionPane.showMessageDialog(null, "Selecione o cliente que deseja Editar.");
+    } else {
+      try {
+        // Carrega o arquivo fxml e cria um novo stage para a janela popup.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ListaClientesController.class.getResource("/sistema/view/CadastroCliente.fxml"));
         VBox page = (VBox) loader.load();
@@ -111,7 +129,7 @@ public class ListaClientesController implements Initializable {
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
 
-        // Define a pessoa no controller.
+        // Define o cliente no controller.
         CadastroClienteController controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.preencheForm(cliente);
@@ -119,18 +137,10 @@ public class ListaClientesController implements Initializable {
 
         // Mostra a janela e espera até o usuário fechar.
         dialogStage.showAndWait();
-
-//        return controller.isOkClicked();
-//      FXMLLoader loader = new FXMLLoader();
-//      loader.setLocation(MainApp.class.getResource("view/PersonEditDialog.fxml"));
-//      AnchorPane page = (AnchorPane) loader.load();
-//      Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/CadastroCliente.fxml"));
-//      Scene cena = new Scene(layout);
-//      Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-//      stage.setScene(cena);
-//      stage.show();
-    } catch (IOException ex) {
-      ex.printStackTrace();
+        listaClientes();
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
     }
   }
 
@@ -143,6 +153,7 @@ public class ListaClientesController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle rb) {
     // TODO
+    listaClientes();
     clienteSelecionado();
   }
 
@@ -175,20 +186,18 @@ public class ListaClientesController implements Initializable {
 
   private void valor(Cliente newValue) {
     this.cliente = newValue;
-    System.out.println("Clicou");
   }
 
   private void excluirCliente() {
 
     if (cliente == null) {
-      JOptionPane.showMessageDialog(null, "Selecione um cliente");
+      JOptionPane.showMessageDialog(null, "Selecione o cliente que deseja excluir.");
 
     } else {
       int res = JOptionPane.showConfirmDialog(null, "Deseja Excluir o registro Selecionado?", "Excluir", JOptionPane.YES_NO_OPTION);
       if (res == JOptionPane.YES_OPTION) {
         ClienteDao clienteDao = new ClienteDao();
-        System.out.println("excluir id :" + cliente.getId());
-        //clienteDao.excluir(cliente.getId());
+        clienteDao.excluir(cliente.getId());
         listaClientes();
       }
     }

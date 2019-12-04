@@ -25,10 +25,9 @@ public class CadastroClienteController implements Initializable {
   /**
    * Initializes the controller class.
    */
-  
   @FXML
   private Label lbTitulo;
-  
+
   @FXML
   private TextField tfRG;
 
@@ -55,18 +54,17 @@ public class CadastroClienteController implements Initializable {
 
   @FXML
   private TextField tfNome;
-  
+
   private Stage dialogStage;
+  private Cliente cliente = new Cliente();
 
   @FXML
   void novo(ActionEvent event) {
-
     salvar();
   }
 
   @FXML
   void cancelar(ActionEvent event) {
-
     fecharInterface();
   }
 
@@ -74,12 +72,13 @@ public class CadastroClienteController implements Initializable {
   public void initialize(URL url, ResourceBundle rb) {
     // TODO
   }
-  
+
   public void setTitulo(String titulo) {
     this.lbTitulo.setText(titulo);
   }
 
   public void preencheForm(Cliente cliente) {
+    this.cliente = cliente;
     tfNome.setText(cliente.getNome());
     tfRG.setText(cliente.getRG());
     tfCPF.setText(cliente.getCPF());
@@ -96,13 +95,21 @@ public class CadastroClienteController implements Initializable {
   private void salvar() {
     if (validarCampos()) {
       ClienteDao clienteDao = new ClienteDao();
-      Cliente cliente = new Cliente();
-      carregarDadosCampos(cliente);
-      if (clienteDao.salvar(cliente) == null) {
-        JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Cliente", "Erro", JOptionPane.ERROR_MESSAGE);
+      carregarDadosCampos();
+      if (this.cliente.getId() != null) {
+        if (clienteDao.alterar(this.cliente) == null) {
+          JOptionPane.showMessageDialog(null, "Erro ao Alterar Cliente", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+          JOptionPane.showMessageDialog(null, "Cliente alterado com Sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+          fecharInterface();
+        }
       } else {
-        JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
-        fecharInterface();
+        if (clienteDao.salvar(this.cliente) == null) {
+          JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Cliente", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+          JOptionPane.showMessageDialog(null, "Cliente cadastrado com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+          fecharInterface();
+        }
       }
     }
 
@@ -156,7 +163,7 @@ public class CadastroClienteController implements Initializable {
     return true;
   }
 
-  private void carregarDadosCampos(Cliente cliente) {
+  private void carregarDadosCampos() {
     cliente.setNome(tfNome.getText());
     cliente.setDataNascimento(dpDataNasc.getValue());
     cliente.setRG(tfRG.getText());
