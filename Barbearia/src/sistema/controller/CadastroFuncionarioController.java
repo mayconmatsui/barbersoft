@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -26,12 +27,15 @@ import sistema.utils.Utils;
  * @author ezequiel
  */
 public class CadastroFuncionarioController implements Initializable {
+    
+    private static int idFuncionario;
 
     /**
      * Initializes the controller class.
      */
     
-   
+       @FXML
+    private Label lbGUIFuncionario;
 
     @FXML
     private TextField tfRG;
@@ -70,6 +74,23 @@ public class CadastroFuncionarioController implements Initializable {
     private TextField tfNome;
     @FXML
     private ComboBox<String> cbTipoFuncionario;
+
+    public void preencheForm(Funcionario funcionario) {
+        this.idFuncionario = funcionario.getId();
+        tfNome.setText(funcionario.getNome());
+        dpDataNasc.setValue(funcionario.getDataNascimento());
+        tfRG.setText(funcionario.getRG());
+        tfCPF.setText(funcionario.getCPF());
+        tfTelefone.setText(funcionario.getTelefone());
+        tfEndereco.setText(funcionario.getEndereco());
+        tfEmail.setText(funcionario.getEmail());
+        cbTipoFuncionario.setValue(funcionario.getTipo());       
+    }
+
+    public CadastroFuncionarioController() {
+        
+    }
+    
 
     @FXML
     void novo(ActionEvent event) {

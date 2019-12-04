@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import sistema.dao.FuncionarioDao;
@@ -85,9 +88,9 @@ public class ListaFuncionariosController implements Initializable {
     @FXML
     void novo(ActionEvent event) {
         try {
-            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/CadastroFuncionario.fxml"));
+            Parent layout =FXMLLoader.load(getClass().getResource("/sistema/view/CadastroFuncionario.fxml"));
             Scene cena = new Scene(layout);
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            Stage stage = new Stage();
             stage.setScene(cena);
             stage.show();
         } catch (IOException ex) {
@@ -98,6 +101,30 @@ public class ListaFuncionariosController implements Initializable {
 
     @FXML
     void editar(ActionEvent event) {
+        if(verificaFuncionario()){
+        try {
+            CadastroFuncionarioController cadastro = new CadastroFuncionarioController();
+            System.out.println(funcionario.getId());
+            System.out.println(funcionario.getNome());
+            System.out.println(funcionario.getDataNascimento());
+            System.out.println(funcionario.getEmail());
+            System.out.println(funcionario.getEndereco());
+            System.out.println(funcionario.getTelefone());
+            System.out.println(funcionario.getTipo());
+            System.out.println(funcionario.getSenha());
+            cadastro.preencheForm(funcionario);
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/sistema/view/CadastroFuncionario.fxml"));
+            VBox root = (VBox)loader.load();
+            loader.setController(cadastro);
+            Stage stage = new Stage();
+            Scene scena = new Scene(root);
+            stage.setScene(scena);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            Logger.getLogger(ListaFuncionariosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
 
     }
 
@@ -149,12 +176,20 @@ public class ListaFuncionariosController implements Initializable {
             int res = JOptionPane.showConfirmDialog(null, "Deseja Excluir o registro Selecionado?", "Excluir", JOptionPane.YES_NO_OPTION);
             if (res == JOptionPane.YES_OPTION) {
                 FuncionarioDao funcionarioDao = new FuncionarioDao();
-                System.out.println("excluir id :"+ funcionario.getId());
-                //clienteDao.excluir(cliente.getId());
+               // System.out.println("excluir id :"+ funcionario.getId());
+                funcionarioDao.excluir(funcionario.getId());
                 listaFuncionarios();
             }
         }
 
+    }
+    private boolean verificaFuncionario(){
+        if (funcionario == null) {
+            JOptionPane.showMessageDialog(null, "Selecione um Funcionario");
+            return false;
+        } else {
+            return true;
+        }
     }
     
 }
