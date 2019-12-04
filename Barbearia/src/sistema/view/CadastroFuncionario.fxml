@@ -16,7 +16,7 @@
    <children>
       <HBox prefHeight="30.0" prefWidth="200.0">
          <children>
-            <Label fx:id="lbGUIFuncionario" styleClass="cinza" text="Cadastro de Funcionario">
+            <Label fx:id="lbTitulo" styleClass="cinza" text="Cadastro de Funcionario">
                <font>
                   <Font size="24.0" />
                </font>
