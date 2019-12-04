@@ -27,15 +27,17 @@ import sistema.utils.Utils;
  * @author ezequiel
  */
 public class CadastroFuncionarioController implements Initializable {
-    
-    private static int idFuncionario;
+
+    private Boolean edit = false;
+    private Funcionario funcionario;
+    private String tipo = null;
 
     /**
      * Initializes the controller class.
      */
-    
-       @FXML
-    private Label lbGUIFuncionario;
+    private Stage dialogStage;
+    @FXML
+    private Label lbTitulo;
 
     @FXML
     private TextField tfRG;
@@ -75,8 +77,12 @@ public class CadastroFuncionarioController implements Initializable {
     @FXML
     private ComboBox<String> cbTipoFuncionario;
 
+    public void setTitulo(String titulo) {
+        this.lbTitulo.setText(titulo);
+    }
+
     public void preencheForm(Funcionario funcionario) {
-        this.idFuncionario = funcionario.getId();
+        this.funcionario = funcionario;
         tfNome.setText(funcionario.getNome());
         dpDataNasc.setValue(funcionario.getDataNascimento());
         tfRG.setText(funcionario.getRG());
@@ -84,13 +90,19 @@ public class CadastroFuncionarioController implements Initializable {
         tfTelefone.setText(funcionario.getTelefone());
         tfEndereco.setText(funcionario.getEndereco());
         tfEmail.setText(funcionario.getEmail());
-        cbTipoFuncionario.setValue(funcionario.getTipo());       
+        cbTipoFuncionario.setValue(funcionario.getTipo());
+        if (funcionario.getTipo().equals("Administrador") || funcionario.getTipo().equals("Atendente")) {
+            pfSenha.setVisible(false);
+            pfSenhaConfirma.setVisible(false);
+            pfSenha.setEditable(false);
+            pfSenhaConfirma.setEditable(false);
+        }
+        tipo = funcionario.getTipo();
     }
 
-    public CadastroFuncionarioController() {
-        
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
     }
-    
 
     @FXML
     void novo(ActionEvent event) {
@@ -109,6 +121,8 @@ public class CadastroFuncionarioController implements Initializable {
         carregarComboBox();
     }
 
+    /*  */
+ /*  */
     private void salvar() {
         if (validarCampos()) {
             FuncionarioDao funcionarioDao = new FuncionarioDao();
@@ -201,8 +215,8 @@ public class CadastroFuncionarioController implements Initializable {
         stage.close();
     }
 
-    public void carregarComboBox(){
-       ObservableList<String> cargo = FXCollections.observableArrayList("Administrador", "Atendente", "Barbeiro");
+    public void carregarComboBox() {
+        ObservableList<String> cargo = FXCollections.observableArrayList("Administrador", "Atendente", "Barbeiro");
         cbTipoFuncionario.setItems(cargo);
     }
 

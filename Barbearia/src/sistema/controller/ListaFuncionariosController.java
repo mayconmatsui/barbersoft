@@ -26,6 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import sistema.dao.FuncionarioDao;
@@ -41,12 +42,11 @@ public class ListaFuncionariosController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     private List<Funcionario> funcionarios = new ArrayList<>();
     private static Funcionario funcionario = null;
     private ObservableList<Funcionario> obsFuncionario;
-  
-     @FXML
+
+    @FXML
     private Button btBusca;
 
     @FXML
@@ -88,7 +88,7 @@ public class ListaFuncionariosController implements Initializable {
     @FXML
     void novo(ActionEvent event) {
         try {
-            Parent layout =FXMLLoader.load(getClass().getResource("/sistema/view/CadastroFuncionario.fxml"));
+            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/CadastroFuncionario.fxml"));
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
@@ -96,34 +96,44 @@ public class ListaFuncionariosController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 
     @FXML
     void editar(ActionEvent event) {
-        if(verificaFuncionario()){
         try {
-            CadastroFuncionarioController cadastro = new CadastroFuncionarioController();
-            System.out.println(funcionario.getId());
-            System.out.println(funcionario.getNome());
-            System.out.println(funcionario.getDataNascimento());
-            System.out.println(funcionario.getEmail());
-            System.out.println(funcionario.getEndereco());
-            System.out.println(funcionario.getTelefone());
-            System.out.println(funcionario.getTipo());
-            System.out.println(funcionario.getSenha());
-            cadastro.preencheForm(funcionario);
+            // Carrega o arquivo fxml e cria um novo stage para a janela popup.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/sistema/view/CadastroFuncionario.fxml"));
-            VBox root = (VBox)loader.load();
-            loader.setController(cadastro);
-            Stage stage = new Stage();
-            Scene scena = new Scene(root);
-            stage.setScene(scena);
-            stage.showAndWait();
+            loader.setLocation(ListaClientesController.class.getResource("/sistema/view/CadastroFuncionario.fxml"));
+            VBox page = (VBox) loader.load();
+
+            // Cria o palco dialogStage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Formulário alteração Funcionário");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner((Stage) ((Button) event.getSource()).getScene().getWindow());
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Define a pessoa no controller.
+            CadastroFuncionarioController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.preencheForm(funcionario);
+            controller.setTitulo("Editar Funcionário");
+
+            // Mostra a janela e espera até o usuário fechar.
+            dialogStage.showAndWait();
+
+//        return controller.isOkClicked();
+//      FXMLLoader loader = new FXMLLoader();
+//      loader.setLocation(MainApp.class.getResource("view/PersonEditDialog.fxml"));
+//      AnchorPane page = (AnchorPane) loader.load();
+//      Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/CadastroCliente.fxml"));
+//      Scene cena = new Scene(layout);
+//      Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+//      stage.setScene(cena);
+//      stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(ListaFuncionariosController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            ex.printStackTrace();
         }
 
     }
@@ -133,11 +143,13 @@ public class ListaFuncionariosController implements Initializable {
         excluirFuncionario();
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         funcionarioSelecionado();
-    }   
+    }
+
     private void listaFuncionarios() {
         FuncionarioDao funcionarioDao = new FuncionarioDao();
         funcionarios = funcionarioDao.listar("%" + tfBusca.getText() + "%");
@@ -148,6 +160,7 @@ public class ListaFuncionariosController implements Initializable {
             preencherTabela(funcionarios);
         }
     }
+
     //Metodo Prencher Tabela
     private void preencherTabela(List<Funcionario> funcionarios) {
         tbColumnNomeFuncionario.setCellValueFactory(new PropertyValueFactory<>("nome"));
@@ -158,6 +171,7 @@ public class ListaFuncionariosController implements Initializable {
         obsFuncionario = FXCollections.observableArrayList(funcionarios);
         tbFuncionario.setItems(obsFuncionario);
     }
+
     //Metodo coletar Informação Cliente Selecionado 
     private void funcionarioSelecionado() {
         tbFuncionario.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> valor(newValue));
@@ -168,7 +182,7 @@ public class ListaFuncionariosController implements Initializable {
     }
 
     private void excluirFuncionario() {
-        
+
         if (funcionario == null) {
             JOptionPane.showMessageDialog(null, "Selecione um Funcionario");
 
@@ -176,14 +190,15 @@ public class ListaFuncionariosController implements Initializable {
             int res = JOptionPane.showConfirmDialog(null, "Deseja Excluir o registro Selecionado?", "Excluir", JOptionPane.YES_NO_OPTION);
             if (res == JOptionPane.YES_OPTION) {
                 FuncionarioDao funcionarioDao = new FuncionarioDao();
-               // System.out.println("excluir id :"+ funcionario.getId());
+                // System.out.println("excluir id :"+ funcionario.getId());
                 funcionarioDao.excluir(funcionario.getId());
                 listaFuncionarios();
             }
         }
 
     }
-    private boolean verificaFuncionario(){
+
+    private boolean verificaFuncionario() {
         if (funcionario == null) {
             JOptionPane.showMessageDialog(null, "Selecione um Funcionario");
             return false;
@@ -191,5 +206,5 @@ public class ListaFuncionariosController implements Initializable {
             return true;
         }
     }
-    
+
 }
