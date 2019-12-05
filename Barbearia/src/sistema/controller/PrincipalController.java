@@ -99,6 +99,7 @@ public class PrincipalController implements Initializable {
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
+            stage.setTitle("Listagem de Categorias");
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -112,6 +113,7 @@ public class PrincipalController implements Initializable {
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
+            stage.setTitle("Listagem de Clientes");
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -126,6 +128,7 @@ public class PrincipalController implements Initializable {
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
+            stage.setTitle("Listagem de Funcionários");
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -140,6 +143,7 @@ public class PrincipalController implements Initializable {
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
+            stage.setTitle("Listagem de Produtos");
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -174,6 +178,7 @@ public class PrincipalController implements Initializable {
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
+            stage.setTitle("Relatório Aniversariantes");
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();

@@ -3,65 +3,85 @@ package sistema.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import sistema.dao.LoginDao;
 
 public class LoginController implements Initializable {
 
     private AnchorPane parent;
-
-    private double xOffSet = 0;
-    private double yOffSet = 0;
     @FXML
     private TextField tfUsuario;
-  @FXML
-  private PasswordField tfSenha;
-  @FXML
-  private Button btLogin;
+
+    @FXML
+    private PasswordField tfSenha;
+
+    @FXML
+    private Button btLogin;
+
+    @FXML
+    void logar(ActionEvent event) {
+        login();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        makeStageDragable();
+
     }
 
-    private void makeStageDragable() {
-        parent.setOnMousePressed((event) -> {
-            xOffSet = event.getSceneX();
-            yOffSet = event.getSceneY();
-        });
-        parent.setOnMouseDragged((event) -> {
-//            Launch.stage.setX(event.getScreenX() - xOffSet);
-//            Launch.stage.setY(event.getScreenY() - yOffSet);
-//            Launch.stage.setOpacity(0.8f);
-        });
-        parent.setOnDragDone((event) -> {
-//            Launch.stage.setOpacity(1.0f);
-        });
-        parent.setOnMouseReleased((event) -> {
-//            Launch.stage.setOpacity(1.0f);
-        });
+    private void login() {
+         if (tfUsuario.getText().isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Preencher o campo Usuário", "Alerta", JOptionPane.WARNING_MESSAGE);
+
+    } else if (tfSenha.getText().isEmpty()) {
+      JOptionPane.showMessageDialog(null, "Preencher o campo Senha", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+    }
+    LoginDao login = new LoginDao();
+    String senha = tfSenha.getText();
+    if (login.autenticar(tfUsuario.getText(), senha)) {
+      JOptionPane.showMessageDialog(null, "Login Efetuado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+      abrirPrincipal();
+      fecharLogin();
+    } else {
+      JOptionPane.showMessageDialog(null, "Erro ao efetuar Login\nUsuário ou senha inválido", "Alert", JOptionPane.WARNING_MESSAGE);
+
+    }
     }
 
-    private void handle_login(ActionEvent event) throws IOException {
-        Parent menu = FXMLLoader.load(getClass().getResource("sistema/view/Principal.fxml"));
-        parent.getChildren().removeAll();
-        parent.getChildren().setAll(menu);
+    private void fecharLogin() {
+        Stage stage = (Stage)btLogin.getScene().getWindow();
+        stage.close();
     }
 
+    private void abrirPrincipal() {
+        try {
+            Parent layout;
+        
+            layout = FXMLLoader.load(getClass().getResource("/sistema/view/Principal.fxml"));
+        
+            Scene cena = new Scene(layout);
+            Stage stage = new Stage();
+            stage.setScene(cena);
+            stage.setMaximized(true);
+            stage.setTitle("BarberSoft - Gerenciamento");         
+            stage.show();
+            } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
 
-    private void close_app(MouseEvent event) {
-        System.exit(0);
     }
 
-  @FXML
-  private void logar(ActionEvent event) {
-  }
 }

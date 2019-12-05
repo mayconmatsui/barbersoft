@@ -14,10 +14,10 @@ public class LaunchController extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/Principal.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/Login.fxml"));
     Scene scene = new Scene(root);
     stage.setScene(scene);
-    stage.setMaximized(true);
+    
 //    stage.initStyle(StageStyle.UNDECORATED);
     stage.show();
   }
@@ -27,7 +27,7 @@ public class LaunchController extends Application {
     for (int i = 1; i <= 100; i++) {
       double progress = (double) i / 10;
       LauncherImpl.notifyPreloader(this, new Preloader.ProgressNotification(progress));
-//      Thread.sleep(20);
+      Thread.sleep(5);
     }
   }
 
