@@ -32,7 +32,6 @@ public class CadastroFuncionarioController implements Initializable {
   private Funcionario funcionario = new Funcionario();
   private Stage dialogStage;
 
-
   /**
    * Initializes the controller class.
    */
@@ -120,7 +119,7 @@ public class CadastroFuncionarioController implements Initializable {
   /*  */
  /*  */
   private void salvar() {
-    
+
     if (validarCampos()) {
       FuncionarioDao funcionarioDao = new FuncionarioDao();
       carregarDadosCampos();
@@ -251,17 +250,17 @@ public class CadastroFuncionarioController implements Initializable {
     cbTipoFuncionario.valueProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-        if (funcionario.getId() != null) {
-//          if (newValue.equals("Administrador") || newValue.equals("Atendente") || newValue.equals("Barbeiro")) {
-//            boxSenha.setVisible(false);
-//          } else {
-//            boxSenha.setVisible(true);
-//          }
-        } else {
-          if (newValue.equals("Administrador") || newValue.equals("Atendente")) {
+        if (!(funcionario.getId() != null)) {
+          if (cbTipoFuncionario.getValue().equals("Administrador") || cbTipoFuncionario.getValue().equals("Atendente")) {
             boxSenha.setVisible(true);
           } else {
             boxSenha.setVisible(false);
+          }
+        } else {
+          if (funcionario.getTipo().equals("Administrador") || funcionario.getTipo().equals("Atendente") || cbTipoFuncionario.getValue().equals("Barbeiro")) {
+            boxSenha.setVisible(false);
+          } else {
+            boxSenha.setVisible(true);
           }
         }
       }
