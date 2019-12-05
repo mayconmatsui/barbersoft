@@ -180,4 +180,8 @@ public class ClienteDao extends Conexao implements ICrud<Cliente> {
         return null;
     }
 
+    public List<Cliente> aniversariantes(int selectedIndex) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

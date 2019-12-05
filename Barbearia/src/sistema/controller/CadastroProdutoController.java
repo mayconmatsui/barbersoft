@@ -153,7 +153,7 @@ public class CadastroProdutoController implements Initializable {
         tfValorVenda.setText(String.valueOf(produto.getValorVenda()));
         tfQuantidade.setText(String.valueOf(produto.getQuantidade()));
         String tipo;
-        if (produto.getTipo() == 0) {
+        if (produto.getTipo() == 0){
             tipo = "Compra";
         } else {
             tipo = "Venda";

@@ -35,8 +35,7 @@ public class CadastroFuncionarioController implements Initializable {
   private Funcionario funcionario;
   private String tipo = null;
   private Stage dialogStage;
-    private Funcionario funcionario;
-    private String tipo = null;
+
 
   /**
    * Initializes the controller class.

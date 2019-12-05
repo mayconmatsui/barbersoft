@@ -159,11 +159,29 @@ public class PrincipalController implements Initializable {
 
     @FXML
     void abrirAniversariantes(ActionEvent event) {
+         try {
+            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/Aniversariante.fxml"));
+            Scene cena = new Scene(layout);
+            Stage stage = new Stage();
+            stage.setScene(cena);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
     @FXML
     void abrirRelatorioProdutos(ActionEvent event) {
+         try {
+            Parent layout = FXMLLoader.load(getClass().getResource("/sistema/view/RelatorioProduto.fxml"));
+            Scene cena = new Scene(layout);
+            Stage stage = new Stage();
+            stage.setScene(cena);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
