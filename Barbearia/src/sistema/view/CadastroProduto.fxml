@@ -16,7 +16,7 @@
    <children>
       <HBox prefHeight="30.0" prefWidth="200.0">
          <children>
-            <Label styleClass="cinza" text="Cadastrar Produto">
+            <Label fx:id="lbTitulo" styleClass="cinza" text="Cadastrar Produto">
                <font>
                   <Font size="24.0" />
                </font>
@@ -58,7 +58,7 @@
                         <FontAwesomeIconView glyphName="LIST_ALT" size="20" />
                      </graphic>
                   </Label>
-                  <TextField fx:id="tfCategoria" prefHeight="45.0" prefWidth="345.0" promptText="Categoria" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="tfCategoria" editable="false" prefHeight="45.0" prefWidth="345.0" promptText="Categoria" styleClass="txtfield" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -147,7 +147,7 @@
                         <FontAwesomeIconView glyphName="CUBE" size="20" />
                      </graphic>
                   </Label>
-                  <ComboBox maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="250.0" promptText="Tipo de produto" HBox.hgrow="ALWAYS" />
+                  <ComboBox fx:id="cbTipoProduto" maxWidth="1.7976931348623157E308" prefHeight="45.0" prefWidth="250.0" promptText="Tipo de produto" HBox.hgrow="ALWAYS" />
                </children>
                <HBox.margin>
                   <Insets left="10.0" />
@@ -172,7 +172,7 @@
                         <FontAwesomeIconView glyphName="FILE_TEXT_ALT" size="20" />
                      </graphic>
                   </Label>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Descrição" HBox.hgrow="ALWAYS">
+                  <TextArea fx:id="taDescricao" prefHeight="200.0" prefWidth="200.0" promptText="Descrição" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="14.0" />
                      </font>
