@@ -31,9 +31,7 @@ import sistema.utils.Utils;
  */
 public class CadastroFuncionarioController implements Initializable {
 
-  private Boolean edit = false;
-  private Funcionario funcionario;
-  private String tipo = null;
+  private Funcionario funcionario = new Funcionario();
   private Stage dialogStage;
 
   /**
@@ -94,14 +92,10 @@ public class CadastroFuncionarioController implements Initializable {
     tfTelefone.setText(funcionario.getTelefone());
     tfEndereco.setText(funcionario.getEndereco());
     tfEmail.setText(funcionario.getEmail());
-//    cbTipoFuncionario.setValue(funcionario.getTipo());
+    cbTipoFuncionario.setValue(funcionario.getTipo());
     if (funcionario.getTipo().equals("Administrador") || funcionario.getTipo().equals("Atendente")) {
-      pfSenha.setVisible(false);
-      pfSenhaConfirma.setVisible(false);
-      pfSenha.setEditable(false);
-      pfSenhaConfirma.setEditable(false);
+      boxSenha.setVisible(false);
     }
-    tipo = funcionario.getTipo();
   }
 
   public void setDialogStage(Stage dialogStage) {
@@ -121,22 +115,30 @@ public class CadastroFuncionarioController implements Initializable {
 
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    // TODO
     carregarComboBox();
   }
 
   /*  */
  /*  */
   private void salvar() {
+    
     if (validarCampos()) {
       FuncionarioDao funcionarioDao = new FuncionarioDao();
-      Funcionario funcionario = new Funcionario();
-      carregarDadosCampos(funcionario);
-      if (funcionarioDao.salvar(funcionario) == null) {
-        JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Funcionário", "Erro", JOptionPane.ERROR_MESSAGE);
+      carregarDadosCampos();
+      if (this.funcionario.getId() != null) {
+        if (funcionarioDao.alterar(this.funcionario) == null) {
+          JOptionPane.showMessageDialog(null, "Erro ao Alterar Funcionário", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+          JOptionPane.showMessageDialog(null, "Funcionário alterado com Sucesso!", "Alteração", JOptionPane.INFORMATION_MESSAGE);
+          fecharInterface();
+        }
       } else {
-        JOptionPane.showMessageDialog(null, "Funcionário cadastrado com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
-        fecharInterface();
+        if (funcionarioDao.salvar(this.funcionario) == null) {
+          JOptionPane.showMessageDialog(null, "Erro ao Cadastrar Funcionário", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+          JOptionPane.showMessageDialog(null, "Funcionário cadastrado com Sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+          fecharInterface();
+        }
       }
     }
   }
@@ -173,7 +175,7 @@ public class CadastroFuncionarioController implements Initializable {
       tfTelefone.requestFocus();
       return false;
     } else if (tfEndereco.getText().isEmpty()) {
-      JOptionPane.showMessageDialog(null, "O Campor endereço deve ser Preenchido", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(null, "O Campo endereço deve ser Preenchido", "Atenção", JOptionPane.INFORMATION_MESSAGE);
       tfEndereco.setText(null);
       tfEndereco.requestFocus();
       return false;
@@ -188,18 +190,39 @@ public class CadastroFuncionarioController implements Initializable {
       tfEmail.requestFocus();
       return false;
     } else if (cbTipoFuncionario.getSelectionModel().isEmpty()) {
-      JOptionPane.showMessageDialog(null, "O Campo Cargo deve ser Selecionado", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+      JOptionPane.showMessageDialog(null, "O tipo de funcionario deve ser Selecionado", "Atenção", JOptionPane.INFORMATION_MESSAGE);
       cbTipoFuncionario.requestFocus();
       return false;
-    } else if (pfSenha.getText().isEmpty() && pfSenhaConfirma.getText().isEmpty() || !pfSenha.getText().equals(pfSenhaConfirma.getText())) {
-      JOptionPane.showMessageDialog(null, "Verifique a senha ou senha de confirmação", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+    } else if (!validaSenha()) {
       return false;
     }
 
     return true;
   }
 
-  private void carregarDadosCampos(Funcionario funcionario) {
+  private Boolean validaSenha() {
+    if (funcionario.getId() != null) {
+      if ((funcionario.getTipo().equals("Barbeiro") && cbTipoFuncionario.getValue().equals("Administrador")) && pfSenha.getText().isEmpty() || (funcionario.getTipo().equals("Barbeiro") && cbTipoFuncionario.getValue().equals("Atendente")) && pfSenha.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Campo senha e verificação de senha deve ser Preenchido", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        return false;
+      } else if ((funcionario.getTipo().equals("Barbeiro") && cbTipoFuncionario.getValue().equals("Administrador")) && !pfSenha.getText().equals(pfSenhaConfirma.getText()) || (funcionario.getTipo().equals("Barbeiro") && cbTipoFuncionario.getValue().equals("Atendente")) && !pfSenha.getText().equals(pfSenhaConfirma.getText())) {
+        JOptionPane.showMessageDialog(null, "Senhas não conferem", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        return false;
+      }
+      return true;
+    } else {
+      if ((cbTipoFuncionario.getValue().equals("Administrador") || cbTipoFuncionario.getValue().equals("Atendente")) && (pfSenha.getText().isEmpty() || pfSenhaConfirma.getText().isEmpty())) {
+        JOptionPane.showMessageDialog(null, "Campo senha e verificação de senha deve ser Preenchido", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        return false;
+      } else if ((cbTipoFuncionario.getValue().equals("Administrador") || cbTipoFuncionario.getValue().equals("Atendente")) && !pfSenha.getText().equals(pfSenhaConfirma.getText())) {
+        JOptionPane.showMessageDialog(null, "Senhas não conferem", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        return false;
+      }
+      return true;
+    }
+  }
+
+  private void carregarDadosCampos() {
     funcionario.setNome(tfNome.getText());
     funcionario.setDataNascimento(dpDataNasc.getValue());
     funcionario.setRG(tfRG.getText());
@@ -208,9 +231,14 @@ public class CadastroFuncionarioController implements Initializable {
     funcionario.setEndereco(tfEndereco.getText());
     funcionario.setEmail(tfEmail.getText());
     funcionario.setTipo(cbTipoFuncionario.getValue());
-    String senha = new String(pfSenha.getText());
-    senha = Utils.geraSenha(senha);
-    funcionario.setSenha(senha);
+
+    if ((cbTipoFuncionario.getValue().equals("Administrador") || cbTipoFuncionario.getValue().equals("Atendente"))) {
+      String senha = pfSenha.getText();
+      senha = Utils.geraSenha(senha);
+      funcionario.setSenha(senha);
+    } else {
+      funcionario.setSenha("");
+    }
   }
 
   private void fecharInterface() {
@@ -224,17 +252,17 @@ public class CadastroFuncionarioController implements Initializable {
     cbTipoFuncionario.valueProperty().addListener(new ChangeListener<String>() {
       @Override
       public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-        if (!edit) {
+        if (funcionario.getId() != null) {
+//          if (newValue.equals("Administrador") || newValue.equals("Atendente") || newValue.equals("Barbeiro")) {
+//            boxSenha.setVisible(false);
+//          } else {
+//            boxSenha.setVisible(true);
+//          }
+        } else {
           if (newValue.equals("Administrador") || newValue.equals("Atendente")) {
             boxSenha.setVisible(true);
           } else {
             boxSenha.setVisible(false);
-          }
-        } else {
-          if (newValue.equals("Administrador") || newValue.equals("Atendente") || newValue.equals("Barbeiro")) {
-            boxSenha.setVisible(false);
-          } else {
-            boxSenha.setVisible(true);
           }
         }
       }

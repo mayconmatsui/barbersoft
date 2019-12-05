@@ -112,7 +112,6 @@ public class CadastroClienteController implements Initializable {
         }
       }
     }
-
   }
 
   private boolean validarCampos() {

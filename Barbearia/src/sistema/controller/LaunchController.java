@@ -17,6 +17,7 @@ public class LaunchController extends Application {
     Parent root = FXMLLoader.load(getClass().getResource("/sistema/view/Principal.fxml"));
     Scene scene = new Scene(root);
     stage.setScene(scene);
+    stage.setMaximized(true);
 //    stage.initStyle(StageStyle.UNDECORATED);
     stage.show();
   }
