@@ -121,8 +121,6 @@ public class CadastroProdutoController implements Initializable {
             controller.setProdutoController(this);
             // Mostra a janela e espera até o usuário fechar.
             dialogStage.showAndWait();
-            System.out.println(categoria.getCategoriaNome());
-            System.out.println(categoria.getCategoriaId());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

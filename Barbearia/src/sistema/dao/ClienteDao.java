@@ -180,8 +180,24 @@ public class ClienteDao extends Conexao implements ICrud<Cliente> {
         return null;
     }
 
-    public List<Cliente> aniversariantes(int selectedIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Cliente> aniversariantes(int mes){
+     
+    try {
+            List<Cliente> lista = new LinkedList<>();
+            String sql = "SELECT * from cliente where extract(month from cliente_data_nascimento) = ?";
+            ps = getPreparedStatement(sql);
+            ps.setInt(1, mes);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Cliente c = new Cliente();
+                preencherLista(c, rs);
+                lista.add(c);
+            }
+            return lista;
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
 }

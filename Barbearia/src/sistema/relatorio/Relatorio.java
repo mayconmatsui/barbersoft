@@ -13,6 +13,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 import sistema.model.Cliente;
 import sistema.model.Produto;
 
@@ -23,15 +24,18 @@ import sistema.model.Produto;
 public class Relatorio {
     
     public void gerarRelatorioAniversariantesMes(List<Cliente> lista) throws JRException{
-        InputStream is = Relatorio.class.getResourceAsStream("/report/clienteAniversariantes.jrxml");
+        InputStream is = Relatorio.class.getResourceAsStream("/sistema/relatorio/report/clienteAniversariantes.jrxml");
         JasperReport jr = JasperCompileManager.compileReport(is);
-        JasperPrint print = JasperFillManager.fillReport(is, null, new JRBeanCollectionDataSource(lista));   
+        JasperPrint print = JasperFillManager.fillReport(jr, null, new JRBeanCollectionDataSource(lista)); 
+        JasperViewer.viewReport(print, false);
+
     }
     
     public void gerarRelatorioProdutos(List<Produto> lista) throws JRException{
-        InputStream is = Relatorio.class.getResourceAsStream("/report/produtos.jrxml");
+        InputStream is = getClass().getResourceAsStream("/sistema/relatorio/report/produtos.jrxml");
         JasperReport jr = JasperCompileManager.compileReport(is);
-        JasperPrint print = JasperFillManager.fillReport(is, null, new JRBeanCollectionDataSource(lista));   
+        JasperPrint print = JasperFillManager.fillReport(jr, null, new JRBeanCollectionDataSource(lista)); 
+        JasperViewer.viewReport(print, false);
     }
     
 }

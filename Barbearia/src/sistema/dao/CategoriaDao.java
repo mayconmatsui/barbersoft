@@ -46,7 +46,6 @@ public class CategoriaDao extends Conexao implements ICrud<Categoria> {
 
   @Override
   public Categoria alterar(Categoria item) {
-    System.out.println(item.getCategoriaStatus());
     String sql = "UPDATE categoria SET categoria_nome = ?, categoria_status = ? WHERE categoria_id = ?";
     try {
       ps = getConnection().prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS);

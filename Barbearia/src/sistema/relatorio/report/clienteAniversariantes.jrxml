@@ -10,7 +10,7 @@
 		<![CDATA[]]>
 	</queryString>
 	<field name="nome" class="java.lang.String"/>
-	<field name="dataNascimento" class="java.sql.LocalDate"/>
+	<field name="dataNascimento" class="java.time.LocalDate"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

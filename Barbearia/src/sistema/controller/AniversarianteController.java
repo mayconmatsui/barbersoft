@@ -88,7 +88,7 @@ public class AniversarianteController implements Initializable {
         carregarMes();
     }
     private void carregarMes() {
-        ObservableList<String> meses = FXCollections.observableArrayList("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Novembro", "Dezembro");
+        ObservableList<String> meses = FXCollections.observableArrayList("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro","Novembro", "Dezembro");
         cbMesAniversariante.setItems(meses);
     }
 
@@ -97,10 +97,10 @@ public class AniversarianteController implements Initializable {
            
        
         ClienteDao clienteDao = new ClienteDao();
-        clientes = clienteDao.aniversariantes(cbMesAniversariante.getSelectionModel().getSelectedIndex());
+        clientes = clienteDao.aniversariantes(cbMesAniversariante.getSelectionModel().getSelectedIndex()+1);
         
         if(clientes.isEmpty()){
-            obsCliente.clear();
+        preencherTabela(clientes);    
             JOptionPane.showMessageDialog(null, "Registro não localizado");
         }else{
         preencherTabela(clientes);
@@ -125,15 +125,17 @@ public class AniversarianteController implements Initializable {
     }
 
     private void relatorio() {
-        if(clientes.isEmpty()){
+        if(!clientes.isEmpty()){
             Relatorio relatorio = new Relatorio();
             try {
                 relatorio.gerarRelatorioAniversariantesMes(clientes);
             } catch (JRException ex) {
                 Logger.getLogger(AniversarianteController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Cliente não localizado");
         }
-        
     }
 
 }

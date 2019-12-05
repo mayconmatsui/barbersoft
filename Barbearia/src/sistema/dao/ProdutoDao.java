@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import sistema.bd.Conexao;
-import sistema.model.Categoria;
 import sistema.model.Produto;
 
 public class ProdutoDao extends Conexao implements ICrud<Produto> {

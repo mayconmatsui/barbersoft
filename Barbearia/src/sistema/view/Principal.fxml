@@ -81,7 +81,7 @@
                                 <FontAwesomeIconView glyphName="BAR_CHART" />
                             </graphic>
                         </MenuItem>
-                        <MenuItem fx:id="miRelatorioVendas" mnemonicParsing="false" onAction="#abrirRelatorioVendas" text="Vendas">
+                        <MenuItem fx:id="miRelatorioClientes" mnemonicParsing="false" onAction="#abrirRelatorioClientes" text="Clientes">
                             <graphic>
                                 <FontAwesomeIconView glyphName="LINE_CHART" />
                             </graphic>

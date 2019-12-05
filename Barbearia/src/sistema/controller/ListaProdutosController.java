@@ -177,7 +177,6 @@ public class ListaProdutosController implements Initializable {
             int res = JOptionPane.showConfirmDialog(null, "Deseja Excluir o registro Selecionado?", "Excluir", JOptionPane.YES_NO_OPTION);
             if (res == JOptionPane.YES_OPTION) {
                 ProdutoDao produtoDao = new ProdutoDao();
-                // System.out.println("excluir id :"+ funcionario.getId());
                 produtoDao.excluir(produto.getId());
                 listaProdutos();
             }
