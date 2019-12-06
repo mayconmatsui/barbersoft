@@ -18,4 +18,6 @@ importar o arquivo db_barbearia.sql
 usuario teste@teste.com
 senha teste
 
+bibliotecas utilizadas estao na pasta lib dentro de src
+
 
