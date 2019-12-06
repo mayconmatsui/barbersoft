@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,14 +69,13 @@ public class LoginController implements Initializable {
     private void abrirPrincipal() {
         try {
             Parent layout;
-        
             layout = FXMLLoader.load(getClass().getResource("/sistema/view/Principal.fxml"));
-        
             Scene cena = new Scene(layout);
             Stage stage = new Stage();
             stage.setScene(cena);
             stage.setMaximized(true);
-            stage.setTitle("BarberSoft - Gerenciamento");         
+            stage.setTitle("BarberSoft - Gerenciamento");     
+            stage.setOnCloseRequest(e -> Platform.exit());
             stage.show();
             } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
